@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:anxiety_tracker/pages/new_crise.dart';
 import 'package:flutter/material.dart';
 
 class CrisisEntry extends StatelessWidget {
@@ -20,7 +23,10 @@ class CrisisEntry extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () => print('botão pressionado'),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NewCrise()));
+        },
       ),
     );
   }
