@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:anxiety_tracker/pages/new_crise.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +23,7 @@ class CrisisEntry extends StatelessWidget {
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const NewCrise()));
+              MaterialPageRoute(builder: (context) =>  NewCrise()));
         },
       ),
     );
