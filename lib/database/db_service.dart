@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -8,18 +7,19 @@ final CollectionReference _criseCollectionRef = _firestore.collection('crises');
 
 class DatabaseService {
   // métod que adiciona uma nova crise ao database
-  static Future<void> addCrise(
-      {required DateTime date,
-      required String gatilho,
-      required String sintomas,
-      required String acao}) async {
+  static Future<void> addCrise({
+    required String gatilho,
+    required String sintomas,
+    required String acao,
+    required DateTime date,
+  }) async {
     DocumentReference docRef = _criseCollectionRef.doc();
 
     Map<String, dynamic> data = <String, dynamic>{
-      "date": date,
       "gatilho": gatilho,
       "sintomas": sintomas,
-      "acao": acao
+      "acao": acao,
+      "date": date,
     };
 
     await docRef
@@ -37,18 +37,18 @@ class DatabaseService {
 
   // editar uma entrada
   static Future<void> updateCrise(
-      {required DateTime date,
-      required String gatilho,
+      {required String gatilho,
       required String sintomas,
       required String acao,
+      required DateTime date,
       required String docId}) async {
     DocumentReference docRef = _criseCollectionRef.doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
-      "date": date,
       "gatilho": gatilho,
       "sintomas": sintomas,
-      "acao": acao
+      "acao": acao,
+      "date": date,
     };
 
     await docRef
